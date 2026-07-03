@@ -9,13 +9,11 @@
   <link rel="icon" type="image/x-icon" href="images/ICONE.png">
 
   <style>
-    /* === TIMELINE === */
     .holo-timeline {
       position: relative;
       padding: 20px 0;
     }
 
-    /* La ligne verticale centrale */
     .holo-timeline::before {
       content: '';
       position: absolute;
@@ -39,7 +37,6 @@
       border-bottom: none;
     }
 
-    /* Le point sur la ligne */
     .holo-event::before {
       content: '';
       position: absolute;
@@ -54,7 +51,6 @@
       z-index: 1;
     }
 
-    /* L'année sur la gauche */
     .holo-event-year {
       position: absolute;
       left: 0;
@@ -70,7 +66,6 @@
       line-height: 1.3;
     }
 
-    /* Titre de l'événement */
     .holo-event-title {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.1rem;
@@ -81,7 +76,6 @@
       margin-bottom: 15px;
     }
 
-    /* Image de l'événement */
     .holo-event-image {
       width: 100%;
       max-width: 400px;
@@ -108,7 +102,6 @@
       font-style: italic;
     }
 
-    /* Texte de l'événement */
     .holo-event-text {
       line-height: 1.8;
       opacity: 0.85;
@@ -119,7 +112,6 @@
       margin-bottom: 10px;
     }
 
-    /* Bandeau d'introduction */
     .holo-intro-banner {
       padding: 20px;
       border: 1px solid var(--holo-dim);
@@ -138,7 +130,6 @@
       margin-bottom: 0;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       .holo-timeline::before {
         left: 20px;
@@ -186,9 +177,9 @@
       <a href="index.html"><button>Accueil</button></a>
       <a href="histoire.html"><button class="active">Histoire du Corps</button></a>
       <a href="formation.html"><button>Formation Cadet</button></a>
+      <a href="unites.html"><button>Unités</button></a>
     </div>
 
-    <!-- INTRODUCTION -->
     <div class="holo-panel active">
       <h2>Origines du Régiment</h2>
       <div class="holo-intro-banner">
@@ -198,10 +189,8 @@
       </div>
     </div>
 
-    <!-- TIMELINE -->
     <div class="holo-timeline">
 
-      <!-- ÉVÉNEMENT 1 -->
       <div class="holo-event">
         <div class="holo-event-year">10 ATC</div>
         <div class="holo-event-title">Campagne de Vogel</div>
@@ -213,7 +202,6 @@
         </div>
       </div>
 
-      <!-- ÉVÉNEMENT 2 -->
       <div class="holo-event">
         <div class="holo-event-year">11 ATC</div>
         <div class="holo-event-title">Opérations sur Balmorra</div>
@@ -227,7 +215,6 @@
         </div>
       </div>
 
-      <!-- ÉVÉNEMENT 3 -->
       <div class="holo-event">
         <div class="holo-event-year">12 ATC</div>
         <div class="holo-event-title">L'assaut de la base de l'Œil d'Azalus</div>
@@ -241,7 +228,6 @@
         </div>
       </div>
 
-      <!-- ÉVÉNEMENT 4 -->
       <div class="holo-event">
         <div class="holo-event-year">13 ATC</div>
         <div class="holo-event-title">Fermeture des Hyperportes Gree</div>
