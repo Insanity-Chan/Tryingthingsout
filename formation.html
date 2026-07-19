@@ -17,7 +17,7 @@
       transform: translateX(5px);
     }
 
-    /* MODAL */
+        /* MODAL GRADES */
     .holo-modal-overlay {
       display: none;
       position: fixed;
@@ -36,11 +36,11 @@
 
     .holo-modal {
       position: relative;
-      max-width: 500px;
+      max-width: 750px;
       width: 90%;
       border: 1px solid var(--holo-cyan);
       background: rgba(0, 26, 51, 0.95);
-      padding: 30px;
+      padding: 45px;
       box-shadow: 0 0 40px var(--holo-glow), inset 0 0 30px rgba(0,240,255,0.05);
       animation: modalIn 0.3s ease;
     }
@@ -54,7 +54,7 @@
     .holo-modal::after {
       content: '';
       position: absolute;
-      width: 15px; height: 15px;
+      width: 23px; height: 23px;
       border: 2px solid var(--holo-cyan);
       box-shadow: 0 0 8px var(--holo-glow);
     }
@@ -64,48 +64,141 @@
 
     .holo-modal-rank-name {
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.4rem;
+      font-size: 2.1rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       text-align: center;
       text-shadow: 0 0 12px var(--holo-glow);
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     .holo-modal-image {
       width: 100%;
-      max-width: 200px;
-      height: 200px;
+      max-width: 300px;
+      height: 300px;
       object-fit: cover;
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto 30px;
       border: 1px solid var(--holo-dim);
       background: rgba(0,8,20,0.5);
     }
 
     .holo-modal-text {
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 1.35rem;
       letter-spacing: 0.1em;
       opacity: 0.6;
       line-height: 1.8;
-      padding: 15px;
+      padding: 23px;
       border: 1px dashed var(--holo-dim);
     }
 
     .holo-modal-close {
       position: absolute;
-      top: 10px; right: 15px;
+      top: 15px; right: 23px;
       background: none;
       border: none;
       color: var(--holo-cyan);
-      font-size: 1.5rem;
+      font-size: 2.25rem;
       cursor: pointer;
       opacity: 0.6;
       transition: opacity 0.3s;
     }
 
     .holo-modal-close:hover {
+      opacity: 1;
+      text-shadow: 0 0 10px var(--holo-glow);
+    }
+
+        /* MODAL POSTURES */
+    .holo-posture-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 8, 20, 0.85);
+      backdrop-filter: blur(4px);
+      z-index: 10002;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .holo-posture-overlay.active {
+      display: flex;
+    }
+
+    .holo-posture-box {
+      position: relative;
+      max-width: 750px;
+      width: 90%;
+      border: 1px solid var(--holo-cyan);
+      background: rgba(0, 26, 51, 0.95);
+      padding: 45px;
+      box-shadow: 0 0 40px var(--holo-glow), inset 0 0 30px rgba(0,240,255,0.05);
+      animation: postureIn 0.3s ease;
+    }
+
+    @keyframes postureIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .holo-posture-box::before,
+    .holo-posture-box::after {
+      content: '';
+      position: absolute;
+      width: 23px; height: 23px;
+      border: 2px solid var(--holo-cyan);
+      box-shadow: 0 0 8px var(--holo-glow);
+    }
+
+    .holo-posture-box::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+    .holo-posture-box::after  { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+    .holo-posture-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 0 0 12px var(--holo-glow);
+      margin-bottom: 30px;
+    }
+
+    .holo-posture-image {
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto 30px;
+      border: 1px solid var(--holo-dim);
+      background: rgba(0,8,20,0.5);
+    }
+
+    .holo-posture-text {
+      text-align: center;
+      font-size: 1.35rem;
+      letter-spacing: 0.1em;
+      opacity: 0.6;
+      line-height: 1.8;
+      padding: 23px;
+      border: 1px dashed var(--holo-dim);
+    }
+
+    .holo-posture-close {
+      position: absolute;
+      top: 15px; right: 23px;
+      background: none;
+      border: none;
+      color: var(--holo-cyan);
+      font-size: 2.25rem;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .holo-posture-close:hover {
       opacity: 1;
       text-shadow: 0 0 10px var(--holo-glow);
     }
@@ -130,12 +223,14 @@
     <div class="holo-nav">
       <a href="index.html"><button>Accueil</button></a>
       <a href="histoir.html"><button>Histoire du Corps</button></a>
-      <a href="formation.html"><button class="active">Formation Cadet</button></a>
+      <a href="formation.html"><button>Formation Cadet</button></a>
       <a href="unites.html"><button>Unités & Code Millitaire</button></a>
+      <a href="sphere.html"><button>Sphère</button></a>
     </div>
 
+
     <!-- SOMMAIRE -->
-    <div class="holo-panel active">
+       <div class="holo-panel active">
       <h2>Sommaire</h2>
       <div class="holo-sommaire">
         <a href="#reglementation" class="holo-link">I — Règlementation</a>
@@ -143,7 +238,9 @@
         <a href="#posture" class="holo-link">III — Posture et Tenue</a>
         <a href="#istc" class="holo-link">IV — I.S.T.C.</a>
         <a href="#specialisation" class="holo-link">V — Spécialisation et Qualification</a>
-        <a href="#serment" class="holo-link">VI — Serment</a>
+        <a href="#blaster" class="holo-link">VI — Désassemblage et Réassemblage d'un Blaster</a>
+        <a href="#bureau" class="holo-link">VII — Comment entrer dans le bureau d'un officier</a>
+        <a href="#serment" class="holo-link">VIII — Serment</a>
       </div>
     </div>
 
@@ -180,7 +277,7 @@
         <div class="holo-rank-category">Rang Académique</div>
         <p class="holo-rank-desc">Individus, hommes et femmes, désireux de s'engager dans l'armée et qui seront formés par des soldats avant de recevoir leur grade ou leur insigne de rang.</p>
         <div class="holo-rank-list">
-          <div class="holo-rank-item" onclick="openRankModal('Cadet', 'images/grades/cadet.png', 'Il sort de l académie et doit se faire formez pour devenir un homme du rang !')"><span class="rank-num">1</span> Cadet</div>
+          <div class="holo-rank-item" onclick="openRankModal('Cadet', 'images/grades/cadet.png', 'Sortant de lacadémie il doit etre formé pour passer soldat!')"><span class="rank-num">1</span> Cadet</div>
         </div>
       </div>
 
@@ -188,9 +285,9 @@
         <div class="holo-rank-category">Hommes de Rang</div>
         <p class="holo-rank-desc">Les hommes de rang remplissent des fonctions et des missions diverses au sein de l'armée. Leur rôle principal est d'exécuter les missions assignées par leurs supérieurs et de soutenir les opérations militaires sur le terrain.</p>
         <div class="holo-rank-list">
-          <div class="holo-rank-item" onclick="openRankModal('Soldat', 'images/grades/soldat.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">2</span> Soldat</div>
-          <div class="holo-rank-item" onclick="openRankModal('Spécialiste', 'images/grades/specialiste.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">3</span> Spécialiste</div>
-          <div class="holo-rank-item" onclick="openRankModal('Caporal', 'images/grades/caporal.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">4</span> Caporal</div>
+          <div class="holo-rank-item" onclick="openRankModal('Soldat', 'images/grades/soldat.png', 'Un soldat ! Pour monter en grade, il doit effectuer une opération complète !')"><span class="rank-num">2</span> Soldat</div>
+          <div class="holo-rank-item" onclick="openRankModal('Spécialiste', 'images/grades/specialiste.png', 'Pour monter en grade, le spécialiste doit avoir une spécialisation et une qualification.')"><span class="rank-num">3</span> Spécialiste</div>
+          <div class="holo-rank-item" onclick="openRankModal('Caporal', 'images/grades/caporal.png', 'Un caporal ! Il doit savoir gérer des hommes et passer le test avec le corps instructeurs pour devenir sergent !')"><span class="rank-num">4</span> Caporal</div>
         </div>
       </div>
 
@@ -198,9 +295,9 @@
         <div class="holo-rank-category">Sous-Officiers Républicains</div>
         <p class="holo-rank-desc">Les sous-officiers assument des responsabilités de commandement et de supervision des troupes tout en exécutant des tâches opérationnelles spécifiques.</p>
         <div class="holo-rank-list">
-          <div class="holo-rank-item" onclick="openRankModal('Sergent', 'images/grades/sergent.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">5</span> Sergent</div>
-          <div class="holo-rank-item" onclick="openRankModal('Sergent-Chef', 'images/grades/sergentchef.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">6</span> Sergent-Chef</div>
-          <div class="holo-rank-item" onclick="openRankModal('Enseigne', 'images/grades/enseigne.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">7</span> Enseigne</div>
+          <div class="holo-rank-item" onclick="openRankModal('Sergent', 'images/grades/sergent.png', 'Le grade de sergent est un grade où lon doit prouver que lon est capable de faire ce qui nous a été demandé !')"><span class="rank-num">5</span> Sergent</div>
+          <div class="holo-rank-item" onclick="openRankModal('Sergent-Chef', 'images/grades/sergentchef.png', 'Il a prouvé de quoi il est capable et doit continuer ses efforts !')"><span class="rank-num">6</span> Sergent-Chef</div>
+          <div class="holo-rank-item" onclick="openRankModal('Enseigne', 'images/grades/enseigne.png', '- - - - -')"><span class="rank-num">7</span> Enseigne</div>
         </div>
       </div>
 
@@ -208,8 +305,8 @@
         <div class="holo-rank-category">Officiers Républicains</div>
         <p class="holo-rank-desc">Les officiers républicains jouent un rôle essentiel dans la défense et la sécurité de la République Galactique. Leurs responsabilités couvrent un large éventail de domaines.</p>
         <div class="holo-rank-list">
-          <div class="holo-rank-item" onclick="openRankModal('Lieutenant', 'images/grades/lieutenant.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">8</span> Lieutenant</div>
-          <div class="holo-rank-item" onclick="openRankModal('Capitaine', 'images/grades/capitaine.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">9</span> Capitaine</div>
+          <div class="holo-rank-item" onclick="openRankModal('Lieutenant', 'images/grades/lieutenant.png', '- - - - -')"><span class="rank-num">8</span> Lieutenant</div>
+          <div class="holo-rank-item" onclick="openRankModal('Capitaine', 'images/grades/capitaine.png', '- - - - -')"><span class="rank-num">9</span> Capitaine</div>
         </div>
       </div>
 
@@ -217,8 +314,8 @@
         <div class="holo-rank-category">Officiers Supérieurs Républicains</div>
         <p class="holo-rank-desc">Ils exécutent les stratégies des officiers généraux, coordonnent les unités sur le terrain et assurent l'efficacité des opérations militaires pour la République.</p>
         <div class="holo-rank-list">
-          <div class="holo-rank-item" onclick="openRankModal('Major', 'images/grades/major.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">10</span> Major</div>
-          <div class="holo-rank-item" onclick="openRankModal('Colonel', 'images/grades/colonel.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">11</span> Colonel</div>
+          <div class="holo-rank-item" onclick="openRankModal('Major', 'images/grades/major.png', '- - - - -')"><span class="rank-num">10</span> Major</div>
+          <div class="holo-rank-item" onclick="openRankModal('Colonel', 'images/grades/colonel.png', '- - - - -')"><span class="rank-num">11</span> Colonel</div>
         </div>
       </div>
 
@@ -226,8 +323,8 @@
         <div class="holo-rank-category">Officiers Généraux Républicains</div>
         <p class="holo-rank-desc">Ils dirigent et supervisent les opérations militaires, coordonnent les troupes et prennent des décisions stratégiques importantes pour la défense et la sécurité de la République.</p>
         <div class="holo-rank-list">
-          <div class="holo-rank-item" onclick="openRankModal('Commandant', 'images/grades/commandant.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">12</span> Commandant</div>
-          <div class="holo-rank-item" onclick="openRankModal('Général', 'images/grades/general.png', 'TEXTTEMPORAIREENDEVELOPEMENT')"><span class="rank-num">13</span> Général</div>
+          <div class="holo-rank-item" onclick="openRankModal('Commandant', 'images/grades/commandant.png', '- - - - -')"><span class="rank-num">12</span> Commandant</div>
+          <div class="holo-rank-item" onclick="openRankModal('Général', 'images/grades/general.png', '- - - - -')"><span class="rank-num">13</span> Général</div>
         </div>
       </div>
     </div>
@@ -242,19 +339,27 @@
         <li>Lors de la convocation d'un homme du rang ou d'un sous-officier par un officier, ces derniers doivent se présenter en tenue de cérémonie (Tenue de cadet) et sans armes. Cela peut être optionnel si l'officier en décide.</li>
       </ul>
 
-      <p class="holo-intro">Les postures se divisent en deux catégories : les postures d'attente et les postures de déplacement.</p>
+      <p class="holo-intro">Les postures se divisent en trois catégories : les postures d'attente, les postures de déplacement et les postures de bataille. Cliquez sur une posture pour plus d'informations.</p>
 
       <h4>Postures d'attente</h4>
       <ul class="holo-list">
-        <li><strong>Le Salut militaire</strong> — Le soldat lève son bras droit, plaçant sa main tendue au niveau de sa tempe.</li>
-        <li><strong>Le Garde-à-vous</strong> — Bras le long du corps, c'est la position de base. Vous n'exécutez les postures de déplacement qu'au garde-à-vous.</li>
-        <li><strong>Le Repos</strong> — Se tenir debout, droit, les bras le long du corps, les talons joints, la tête haute, immobile.</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Le Salut militaire', 'images/postures/salut-militaire.png', 'Cest un signe de respect !')"><strong>Le Salut militaire</strong> — Le soldat lève son bras droit, plaçant sa main tendue au niveau de sa tempe.</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Le Salut de terrain', 'images/postures/salut-terrain.png', 'Cest un signe de respect !')"><strong>Le Salut de terrain</strong> — C'est le salut sur le champ de bataille. Vous gardez votre arme en sécurité. Tout peut arriver sur le front !</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Le Garde-à-vous', 'images/postures/garde-a-vous.png', 'Posture de préparation au déplacement ou à lordre.')"><strong>Le Garde-à-vous</strong> — Bras le long du corps, c'est la position de base. Vous n'exécutez les postures de déplacement qu'au garde-à-vous.</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Le Repos', 'images/postures/repos.png', 'Posture dans laquelle vous nexécutez pas les ordres !')"><strong>Le Repos</strong> — Se tenir debout, droit, les bras le long du corps, les talons joints, la tête haute, immobile.</li>
       </ul>
 
       <h4>Postures de déplacement</h4>
       <ul class="holo-list">
-        <li><strong>Droite-Droite / Gauche-Gauche</strong> (Quart de tour) — Lorsqu'un supérieur ordonne un [DROITE-DROITE], le premier ordre est préparatoire, vous attendez le second « droite » pour exécuter le quart de tour (45 degrés). Même principe pour la gauche.</li>
-        <li><strong>Le Demi-Tour Droite</strong> — Vous vous retournez à 180 degrés sur votre droite. Le demi-tour gauche n'existe pas.</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Droite-Droite / Gauche-Gauche', 'images/postures/quart-tour.gif', 'Une posture de mouvement à 90°.')"><strong>Droite-Droite / Gauche-Gauche</strong> (Quart de tour) — Lorsqu'un supérieur ordonne un [DROITE-DROITE], le premier ordre est préparatoire, vous attendez le second « droite » pour exécuter le quart de tour (90 degrés). Même principe pour la gauche.</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Le Demi-Tour Droite', 'images/postures/demi-tour.gif', 'Une posture de mouvement à 180°.')"><strong>Le Demi-Tour Droite</strong> — Vous vous retournez à 180 degrés sur votre droite. Le demi-tour gauche n'existe pas.</li>
+      </ul>
+
+      <h4>Postures de Bataille</h4>
+      <ul class="holo-list">
+        <li style="cursor:pointer;" onclick="openPostureModal('La Ligne de feux', 'images/postures/ligne-feux.png', 'Il permet dinterdire laccès à une zone.')"><strong>La Ligne de feux</strong> — La Ligne de feux est la pour crée une zone ou l'ennemie ne peux pas passer sans prendre une risque sure de se faire tiré dessus et abattre.</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Le Triangle', 'images/postures/triangle.png', 'Permets la percée dans les lignes ennemies !')"><strong>Le Triangle</strong> — Le triangle est une formation de percée. Si elle est bien effectuée et bien coordonnée, elle peut percer une ligne ennemie !</li>
+        <li style="cursor:pointer;" onclick="openPostureModal('Le Carré d\'escorte', 'images/postures/carre-escort.png', 'Il permet descorter en toute sécurité un VIP.')"><strong>Le Carré d'escorte</strong> — Le carré d'escorte, comme son nom l'indique, est là pour escorter un VIP qui se place au milieu de la formation.</li>
       </ul>
 
       <h3>II. Présentation d'un militaire</h3>
@@ -276,7 +381,7 @@
     <div class="holo-section" id="istc">
       <h2>IV — I.S.T.C.</h2>
       <p class="holo-intro">L'ISTC définit quatre règles de sécurité fondamentales :</p>
-      <div class="holo-grid">
+      <div class="holo-grid" style="grid-template-columns: repeat(2, 1fr);">
         <div class="holo-card">
           <div class="label">Règle 1</div>
           <div class="value" style="font-size:1rem;line-height:1.5;">Une arme doit toujours être considérée comme chargée.</div>
@@ -322,7 +427,7 @@
       <div class="holo-grid">
         <div class="holo-card">
           <div class="label">Médecin de Combat</div>
-          <div class="value" style="font-size:0.9rem;line-height:1.6;font-family:'Share Tech Mono',monospace;text-shadow:none;opacity:0.85;">Ils servent à assurer les premiers secours et maintenir en vie une section déployée au combat. Leurs capacités de soins sont limitées mais efficaces.</div>
+          <div class="value" style="font-size:0.9rem;line-height:1.6;font-family:'Share Tech Mono',monospace;text-shadow:none;opacity:0.85;">Ils servent à assurer les premiers secours et maintenir en vie une section déployée au combat. Leurs capacités de soins sont limités mais efficaces.</div>
         </div>
         <div class="holo-card">
           <div class="label">Ingénieur de Combat</div>
@@ -331,11 +436,49 @@
       </div>
     </div>
 
-    <!-- VI - SERMENT -->
+    <!-- VI - BLASTER -->
+    <div class="holo-section" id="blaster">
+      <h2>VI — Le désassemblage et réassemblage d'un Blaster</h2>
+      <p class="holo-intro">Comment désassembler et réassembler son arme en 7 étapes !</p>
+      <div class="holo-presentation">
+        <p>1. Décharger l'arme en retirant la cartouche de gaz.</p>
+        <p>2. Appuyer sur la goupille pour la faire sortir.</p>
+        <p>3. Ouvrir l'arme et retirer la culasse.</p>
+        <p>4. Retirer le convertisseur et la lentille sans forcer.</p>
+        <p>5. Dévisser le canon.</p>
+        <p>6. Dévisser les 4 vis du module de refroidissement.</p>
+        <p>7. Retirer les connexions du module de refroidissement.</p>
+        <div class="holo-dialogue">
+          Bravo, l'arme est démontée. Vous pouvez maintenant la nettoyer, l'huiler et la réassembler en faisant toutes les étapes, mais dans l'ordre inverse de 7 à 1.
+        </div>
+      </div>
+    </div>
+    
+        <!-- VII - BUREAU OFFICIER -->
+    <div class="holo-section" id="bureau">
+      <h2>VII — Comment entrer dans le bureau d'un officier</h2>
+      <p class="holo-intro">Voici comment y parvenir sans problème !</p>
+      <div class="holo-presentation">
+        <p>1. Demandez l'autorisation d'entrer dans le bureau.</p>
+        <p>2. Une fois autorisé, entrez en marchant, puis allez à son bureau.</p>
+        <p>3. Mettez-vous au salut et présentez vos respects.</p>
+          <br>
+          Et pour partir du bureau :<br>
+          <br>
+        <p>1. Saluez, puis faites un demi-tour sur la droite.<br>
+        <p>2. Marchez et sortez du bureau sans vous retourner.
+        </div>
+      </div>
+    </div>
+
+    <!-- VIII - SERMENT -->
     <div class="holo-section" id="serment">
-      <h2>VI — Serment</h2>
+      <h2>VIII — Serment</h2>
       <div class="holo-serment">
-        « Je jure solennellement de consacrer ma vie et mes capacités à la défense de la République, de protéger la constitution galactique et de promouvoir les droits universels de toute forme de vie, des profondeurs de Coruscant aux confins de la galaxie, aussi longtemps que je vivrai. »
+        « Je jure solennellement de consacrer ma vie et mes capacités à la défense de la République,<br>
+        de protéger la constitution galactique,<br>
+        et de promouvoir les droits universels de toute forme de vie,<br>
+        des profondeurs de Coruscant aux confins de la galaxie, aussi longtemps que je vivrai. »
       </div>
     </div>
 
@@ -346,7 +489,17 @@
     </div>
   </div>
 
-  <!-- MODAL -->
+  <!-- MODAL POSTURES -->
+  <div class="holo-posture-overlay" id="postureModal" onclick="closePostureModal(event)">
+    <div class="holo-posture-box" onclick="event.stopPropagation()">
+      <button class="holo-posture-close" onclick="closePostureModal(event)">×</button>
+      <div class="holo-posture-name" id="modalPostureName">Posture</div>
+      <img class="holo-posture-image" id="modalPostureImage" src="" alt="Posture">
+      <div class="holo-posture-text" id="modalPostureText">TEXTTEMPORAIREENDEVELOPEMENT</div>
+    </div>
+  </div>
+
+  <!-- MODAL GRADES -->
   <div class="holo-modal-overlay" id="rankModal" onclick="closeRankModal(event)">
     <div class="holo-modal" onclick="event.stopPropagation()">
       <button class="holo-modal-close" onclick="closeRankModal(event)">×</button>
@@ -358,8 +511,8 @@
 
   <script>
     setTimeout(() => {
-      document.getElementById('boot-screen').style.display = 'none';
-    }, 2800);
+  document.getElementById('boot-screen').style.display = 'none';
+}, 700);
 
     function updateClock() {
       const now = new Date();
@@ -371,7 +524,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // MODAL
+    // MODAL GRADES
     function openRankModal(rankName, imagePath, rankText) {
       document.getElementById('modalRankName').textContent = rankName;
       document.getElementById('modalRankText').textContent = rankText;
@@ -395,9 +548,34 @@
       }
     }
 
+    // MODAL POSTURES
+    function openPostureModal(postureName, imagePath, postureText) {
+      document.getElementById('modalPostureName').textContent = postureName;
+      document.getElementById('modalPostureText').textContent = postureText;
+
+      const img = document.getElementById('modalPostureImage');
+      img.src = imagePath;
+      img.style.display = 'block';
+      img.onerror = function() {
+        this.style.display = 'none';
+      };
+      img.onload = function() {
+        this.style.display = 'block';
+      };
+
+      document.getElementById('postureModal').classList.add('active');
+    }
+
+    function closePostureModal(event) {
+      if (event.target === document.getElementById('postureModal') || event.target.classList.contains('holo-posture-close')) {
+        document.getElementById('postureModal').classList.remove('active');
+      }
+    }
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         document.getElementById('rankModal').classList.remove('active');
+        document.getElementById('postureModal').classList.remove('active');
       }
     });
   </script>
